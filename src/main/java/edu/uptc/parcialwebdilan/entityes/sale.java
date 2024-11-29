@@ -18,13 +18,13 @@ public class sale {
     @Column(nullable = false)
     private Double total;
 
-    // Relación muchos a uno con Customer
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private customer customer;
 
-    // Getters y setters
+
     public Long getId() {
         return id;
     }
