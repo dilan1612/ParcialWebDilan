@@ -24,7 +24,7 @@ public class customer {
     private Long phone;
 
     // Relación uno a muchos con Sale
-    @JsonManagedReference
+    
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<sale> sales;
 

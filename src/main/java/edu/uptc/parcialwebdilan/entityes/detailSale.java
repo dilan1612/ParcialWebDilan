@@ -1,6 +1,5 @@
 package edu.uptc.parcialwebdilan.entityes;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,12 +16,12 @@ public class detailSale {
     @Column(nullable = false)
     private Double subtotal;
 
-    @JsonBackReference
+    // Relación muchos a uno con Sale
     @ManyToOne
     @JoinColumn(name = "sale_id", nullable = false)
     private sale sale;
 
-    @JsonBackReference
+    // Relación muchos a uno con Product
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private product product;

@@ -19,7 +19,7 @@ public class sale {
     private Double total;
 
 
-    @JsonBackReference
+
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private customer customer;
