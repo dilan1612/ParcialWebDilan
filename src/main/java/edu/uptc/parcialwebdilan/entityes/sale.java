@@ -1,5 +1,6 @@
 package edu.uptc.parcialwebdilan.entityes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -18,21 +19,12 @@ public class sale {
     private Double total;
 
     // Relación muchos a uno con Customer
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private customer customer;
 
-    public sale() {}
-
-    public sale(Long id, LocalDate date, Double total, customer customer) {
-        this.id = id;
-        this.date = date;
-        this.total = total;
-        this.customer = customer;
-    }
-
-    // Getters y Setters
-
+    // Getters y setters
     public Long getId() {
         return id;
     }

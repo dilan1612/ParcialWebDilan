@@ -2,37 +2,33 @@ package edu.uptc.parcialwebdilan.entityes;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
-@Table(name="customer")
+@Table(name = "customer")
 public class customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
     @Column(nullable = false, length = 40)
     private String name;
+
     @Column(nullable = false, length = 30)
     private String mail;
+
     @Column
     private Long phone;
 
+    // Relación uno a muchos con Sale
+    @JsonManagedReference
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<sale> sales;
 
-    public customer() {
-    }
-
-    public customer(Long id, String name, String mail, Long phone) {
-        this.id = id;
-        this.name = name;
-        this.mail = mail;
-        this.phone = phone;
-    }
-
-
+    // Getters y setters
     public Long getId() {
         return id;
     }
